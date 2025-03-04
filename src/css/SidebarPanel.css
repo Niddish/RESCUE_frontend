@@ -1,0 +1,32 @@
+.sidebar-panel {
+  width: 33vw; 
+  height: 100vh; 
+  background: #CC0033; 
+  border-radius: 16px; 
+  border: 8px solid black; 
+  position: relative;
+  overflow-y: auto; 
+  overflow-x: hidden;
+  padding: 10px; 
+  box-sizing: border-box;
+  margin-right: 16px;
+  
+}
+
+
+.sidebar-panel::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #CC0033; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff6384, #5C5555); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff6384, #5C5555);
+}
