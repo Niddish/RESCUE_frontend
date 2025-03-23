@@ -1,0 +1,42 @@
+.settings-visualizer {
+    padding: 12px;
+    background-color: #5C5555;
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    overflow: auto;
+    max-height: 200px;  
+    word-wrap: break-word;
+  }
+  
+  .settings-visualizer .setting-item {
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+  
+  .settings-visualizer .setting-label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  .settings-visualizer::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;  
+  }
+  
+  .settings-visualizer::-webkit-scrollbar-track {
+    background: #5C5555;
+    border-radius: 10px;
+  }
+  
+  .settings-visualizer::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(160, 152, 152), rgb(90, 100, 100));
+    border-radius: 10px;
+  }
+  
+  .settings-visualizer::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgb(160, 152, 152), rgb(90, 100, 100));
+  }
+  
