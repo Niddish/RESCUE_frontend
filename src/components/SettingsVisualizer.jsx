@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../css/settingsvisualizer.css";
 
-const SettingsVisualizer = ({ gpuTopology, apiEndpoint, refreshInterval = 5 }) => {
+const SettingsVisualizer = ({
+  gpuTopology,
+  apiEndpoint,
+  refreshInterval = 5,
+  showPlaceholderGPUs,       // new prop
+  setShowPlaceholderGPUs     // new prop
+}) => {
   const [countdown, setCountdown] = useState(refreshInterval);
 
   useEffect(() => {
@@ -35,6 +41,16 @@ const SettingsVisualizer = ({ gpuTopology, apiEndpoint, refreshInterval = 5 }) =
       </div>
       <div className="setting-item">
         <span className="setting-label">Data Source URL:</span> {apiEndpoint}
+      </div>
+      <div className="setting-item">
+        <label>
+          <input
+            type="checkbox"
+            checked={showPlaceholderGPUs}
+            onChange={(e) => setShowPlaceholderGPUs(e.target.checked)}
+          />
+          Show Placeholder GPUs
+        </label>
       </div>
     </div>
   );

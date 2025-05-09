@@ -14,7 +14,6 @@ function getHighlightStyles(currentGPUInfo, hoveredGPUInfo, selectedParallelisms
   const boxShadows = [];
   let brightness = 1.0;
 
-  
   if (currentGPUInfo.globalIndex === hoveredGPUInfo.globalIndex) {
     boxShadows.push("0 0 6px 3px black");
     brightness = 1.5;
@@ -52,9 +51,10 @@ const Node = ({
   hoveredGPU,
   setHoveredGPU,
   selectedParallelisms,
+  showPlaceholderGPUs    
 }) => {
   return (
-    <Box display="flex" justifyContent="center" width="100%" sx={{ my: 5 }}>
+    <Box display="flex" justifyContent="center" width="100%">
       <Box
         bgcolor="white"
         border={8}
@@ -73,14 +73,22 @@ const Node = ({
             memory_total_MB,
             utilization_pct,
             temperature_C,
+            clock_rate_MHz,
           } = info;
 
           const isNoData =
-          !gpuData || 
-          !gpuData.info || 
-          !gpuData.id || 
-          (typeof gpuData.id === "string" && gpuData.id.toLowerCase().includes("no data")) ||
-          (typeof nodeName === "string" && nodeName.toLowerCase().includes("not detected"));
+            !gpuData ||
+            !gpuData.info ||
+            !gpuData.id ||
+            (typeof gpuData.id === "string" &&
+              gpuData.id.toLowerCase().includes("no data")) ||
+            (typeof nodeName === "string" &&
+              nodeName.toLowerCase().includes("not detected"));
+
+          //if we're not showing placeholders, skip rendering GPUs with no data
+          if (!showPlaceholderGPUs && isNoData) {
+            return null;
+          }
 
           const highlightStyles = isNoData
             ? {}
@@ -88,29 +96,34 @@ const Node = ({
 
           return (
             <Tippy
-            key={index}
-            content={
-              isNoData ? (
-                <div style={{ fontFamily: "Arial, sans-serif", fontSize: "14px"  }}>GPU not detected</div>
-              ) : (
-                <div style={{ 
-                  fontFamily: "Arial, sans-serif", 
-                  textAlign: "left",
-                  fontSize: "14px" 
-                }}>
-                  <strong>{name}</strong> (ID: {id}) <br />
-                  Memory: {memory_used_MB}MB / {memory_total_MB}MB <br />
-                  Utilization: {utilization_pct}% <br />
-                  Temp: {temperature_C}°C <br />
-                  Node: {nodeName}
-                </div>
-              )
-            }
-            animation="scale"
-            placement="top" 
-            arrow={true} 
-            theme="light-border" 
-          >
+              key={index}
+              content={
+                isNoData ? (
+                  <div style={{ fontFamily: "Arial, sans-serif", fontSize: "14px" }}>
+                    GPU not detected
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      fontFamily: "Arial, sans-serif",
+                      textAlign: "left",
+                      fontSize: "14px",
+                    }}
+                  >
+                    <strong>{name}</strong> (ID: {id}) <br />
+                    Memory: {memory_used_MB}MB / {memory_total_MB}MB <br />
+                    Utilization: {utilization_pct}% <br />
+                    Temp: {temperature_C}°C <br />
+                    Clock Rate: {clock_rate_MHz} MHz <br />
+                    Node: {nodeName}
+                  </div>
+                )
+              }
+              animation="scale"
+              placement="top"
+              arrow={true}
+              theme="light-border"
+            >
               <Box
                 component="img"
                 src={gpu}
