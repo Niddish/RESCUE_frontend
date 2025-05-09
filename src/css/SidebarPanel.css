@@ -1,5 +1,5 @@
 .sidebar-panel {
-  width: 33vw; 
+  max-width: 33vw; 
   height: 100vh; 
   background: #CC0033; 
   border-radius: 16px; 
