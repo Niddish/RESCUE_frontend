@@ -19,6 +19,7 @@ And that's it!
 
 - **Screen resizing looks a bit odd right now**.
 - **Need to update certain components to use MUI instead of React native.**
+- **Update CSS to not be in component files.**
   
 - **⚠️ IMPORTANT: No "checks" for invalid topology.**
   - Right now, you can manually modify the JSON, but there are no safeguards for invalid topology values.
