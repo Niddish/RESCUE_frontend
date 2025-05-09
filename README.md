@@ -13,7 +13,7 @@ And that's it!
 
 ## 💻 It Should Look Something Like This
 
-![RESCUE UI Screenshot](RESCUE_frontend/src/assets/RESCUE_test.png)
+![RESCUE UI Screenshot](/src/assets/RESCUE_test.png)
 
 ## **Things of Note That Need to Be Added/Fixed**
 
