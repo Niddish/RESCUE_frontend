@@ -5,8 +5,8 @@ const SettingsVisualizer = ({
   gpuTopology,
   apiEndpoint,
   refreshInterval = 5,
-  showPlaceholderGPUs,       // new prop
-  setShowPlaceholderGPUs     // new prop
+  showPlaceholderGPUs,       
+  setShowPlaceholderGPUs    
 }) => {
   const [countdown, setCountdown] = useState(refreshInterval);
 
