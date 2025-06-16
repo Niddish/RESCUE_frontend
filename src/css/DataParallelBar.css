@@ -1,0 +1,29 @@
+.scrollContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  background-color: #5c5555;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  height: 8px;
+}
+.scrollContainer::-webkit-scrollbar-track {
+  background: #5c5555;
+  border-radius: 10px;
+}
+.scrollContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(160, 152, 152), rgb(90, 100, 100));
+  border-radius: 10px;
+}
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgb(160, 152, 152), rgb(90, 100, 100));
+}
